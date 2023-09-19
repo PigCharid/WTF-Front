@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: consolas;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-wrap: wrap;
+    background: linear-gradient(45deg,#3f51b5,#e91e63);
+    gap: 50px;
+}
+
+a{
+    position: relative;
+    padding: 20px 40px;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 1.5em;
+    border: 2px solid transparent;
+    transition: 0.5s;
+}
+
+a:hover{
+    border: 2px solid #fff;
+}
+
+a::before{
+    content: "";
+    position: absolute;
+    inset: 0 8px;
+    border-left: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transition: 1s;
+}
+
+a::after{
+    content: "";
+    position: absolute;
+    inset: 8px 0;
+    border-top: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transition: 1s;
+
+}
+
+a.btn1:hover::before{
+    inset: 16px 8px;
+}
+a.btn1:hover::after{
+    inset: 8px 16px;
+}
+a.btn2:hover::before{
+    inset: 0 8px;
+    transform: rotateY(180deg);
+}
+a.btn2:hover::after{
+    inset: 8px 0;
+    transform: rotateX(180deg);
+}
+
+a.btn3:hover::before{
+    inset: 0 -12px;
+    transform: skewY(15deg);
+}
+a.btn3:hover::after{
+    inset: -12px 0;
+    transform: skewX(15deg);
+    
+}
+
+a.btn4:hover,
+a.btn5:hover,
+a.btn6:hover{
+    border-color: transparent;
+}
+
+a.btn4:hover::before{
+    inset: 0 30px;
+    transform: skew(25deg);
+}
+
+a.btn4:hover::after{
+    inset: 10px 0;
+    transform: skew(-25deg);
+}
+
+a.btn5:hover::before,
+a.btn5:hover::after
+{
+    inset: 0;
+}
+
+a.btn6:hover::before{
+    inset: 0 0;
+    transform: rotate(-10deg);
+}
+a.btn6:hover::after{
+    inset: 0 -4px;
+    transform: rotate(5deg);
+}

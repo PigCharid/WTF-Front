@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .carousel-container {
+        margin: 0 auto;
+        position: relative;
+        width: 500px;
+        height: 300px;
+        /* overflow: hidden; */
+        background-color: #ccc;
+      }
+
+      .carousel-list {
+        position: relative;
+        display: flex;
+        height: 100%;
+        width: 100%;
+      }
+
+      .slide {
+        flex: 0 0 100%;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-left: red 1px solid;
+      }
+
+      /* .carousel-container .carousel-arrow {
+        display: none;
+        position: absolute;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        color: white;
+        text-align: center;
+        line-height: 36px;
+        cursor: pointer;
+
+        background-color: rgba(31, 45, 61, 0.2);
+      }
+
+      .carousel-container:hover .carousel-arrow {
+        display: block;
+      }
+
+      .carousel-container:hover .carousel-arrow:hover {
+        background-color: rgba(31, 45, 61, 0.4);
+      }
+
+      .carousel-container .carousel-arrow-left {
+        top: 50%;
+        left: 2%;
+        transform: translateY(-50%);
+      }
+
+      .carousel-container .carousel-arrow-right {
+        top: 50%;
+        right: 2%;
+        transform: translateY(-50%);
+      }
+
+      .carousel-container .indicator {
+        display: flex;
+        position: absolute;
+        left: 50%;
+        top: 90%;
+        transform: translateX(-50%);
+      }
+
+      .carousel-container .indicator span {
+        margin: 2px 5px;
+        padding: 3px;
+        width: 5px;
+        height: 5px;
+        border: 1px solid white;
+        border-radius: 5px;
+      }
+
+      .active {
+        background-color: #fff;
+      } */
+    </style>
+  </head>
+
+  <body>
+    <div class="carousel-container">
+      <div class="carousel-list">
+        <div class="slide">1</div>
+        <div class="slide">2</div>
+        <div class="slide">3</div>
+      </div>
+      <!-- <div class="carousel-arrow carousel-arrow-left">&lt</div>
+      <div class="carousel-arrow carousel-arrow-right">&gt</div>
+      <div class="indicator">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+      </div> -->
+    </div>
+  </body>
+
+  <script>
+    const doms = {
+      carouselList: document.querySelector(".carousel-list"),
+    //   arrowLeft: document.querySelector(".carousel-arrow-left"),
+    //   arrowRight: document.querySelector(".carousel-arrow-right"),
+    //   indicator: document.querySelectorAll(".indicator span"),
+    };
+    let currentIndex = 0;
+
+    function moveTo(index) {
+      doms.carouselList.style.transform = `translateX(-${index * 100}%)`;
+      doms.carouselList.style.transition = ".5s";
+
+    //   // 去掉导航点选中效果
+    //   let active = document.querySelector(".indicator span.active");
+    //   active.classList.remove("active");
+    //   // 添加选中效果
+    //   doms.indicator[index].classList.add("active");
+      currentIndex = index;
+    }
+
+    // // 给导航点添加事件
+    // doms.indicator.forEach((item, i) => {
+    //   item.onclick = function () {
+    //     moveTo(i);
+    //   };
+    // });
+    
+    // let indicatorLength = doms.indicator.length;
+    // function preSlide() {
+        
+    //   if (currentIndex === 0) {
+    //     doms.carouselList.style.transition = "none";
+    //     doms.carouselList.style.transform = `translateX(-${
+    //       indicatorLength * 100
+    //     }%)`;
+    //     doms.carouselList.clientHeight;
+    //     moveTo(indicatorLength - 1);
+    //   } else {
+    //     moveTo(currentIndex - 1);
+    //   }
+    // }
+    function nextSlide() {
+      if (currentIndex === 2) {
+        doms.carouselList.style.transition = "none";
+        doms.carouselList.style.transform = "translateX(100%)";
+        doms.carouselList.clientHeight;
+        moveTo(0);
+      } else {
+        moveTo(currentIndex + 1);
+      }
+    }
+
+    // doms.arrowLeft.onclick = function () {
+    //   preSlide();
+    // };
+
+    // doms.arrowRight.onclick = function () {
+    //   nextSlide();
+    // };
+
+    function start(time = 2000) {
+      setInterval(() => {
+        nextSlide();
+      }, time);
+    }
+    start();
+    // init();
+  </script>
+</html>

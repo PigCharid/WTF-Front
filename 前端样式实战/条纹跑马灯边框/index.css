@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #000;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 100px;
+}
+
+.container .box {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background-color: #000;
+}
+
+.container .box::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  background: linear-gradient(
+    45deg,
+    #00f367 10%,
+    transparent 10%,
+    transparent 50%,
+    transparent 50%,
+    #00f367 50%,
+    #00f367 60%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 15px 15px;
+  box-shadow: 0 0 0 10px #000, 0 0 0 14px #00f367;
+  z-index: -1;
+  filter: hue-rotate(calc(var(--i) * 90deg));
+}
+
+.container .box:hover:before {
+  animation: animate 0.5s linear infinite;
+}
+
+.container .box::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  filter: hue-rotate(calc(var(--i) * 90deg));
+  border: 3px dashed #00f367;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: 15px;
+  }
+}
+
+.container .button {
+  position: relative;
+  width: 100px;
+  height: 40px;
+  /* background-color: #fff; */
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  cursor: pointer;
+  font-size: 20px;
+  background-color: #fff;
+  
+}
+
+.container .button::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  background: linear-gradient(
+    45deg,
+    #00f367 10%,
+    transparent 10%,
+    transparent 50%,
+    transparent 50%,
+    #00f367 50%,
+    #00f367 60%,
+    transparent 60%,
+    transparent 100%
+  );
+  background-size: 15px 15px;
+  z-index: -1;
+  filter: hue-rotate(calc(var(--i) * 90deg));
+  border-radius: 10px;
+  
+}
+
+.container .button:hover:before {
+  animation: animate 0.5s linear infinite;
+  border: 1px solid #00f367;
+}
+
+
+.container .button1 {
+    position: relative;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* color: #fff; */
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff;
+
+    
+  }
+  
+  .container .button1::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    background: linear-gradient(
+      45deg,
+      #00f367 10%,
+      transparent 10%,
+      transparent 50%,
+      transparent 50%,
+      #00f367 50%,
+      #00f367 60%,
+      transparent 60%,
+      transparent 100%
+    );
+    background-size: 15px 15px;
+  
+
+    z-index: -1;
+    filter: hue-rotate(calc(var(--i) * 90deg));
+    border-radius: 10px;
+    
+  }
+  
+  .container .button1:hover::before {
+    animation: animate 0.5s linear infinite;
+    border: 1px solid #00f367;
+  }
+  
+

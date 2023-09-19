@@ -1,0 +1,37 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+   
+}
+
+.test
+{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background-color: #0e1538;
+    color: white;
+}
+
+.test::before
+{   
+    content: "";
+    position: absolute;
+    inset: -5px;
+    /* top: px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px; */
+    background: linear-gradient(45deg,#00ccff,#0e1538,#0e1538,#d400d4);
+    box-shadow: 0 0 0 20px #070c23;
+    z-index: -1;
+}
