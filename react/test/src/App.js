@@ -1,19 +1,12 @@
-import { useState } from "react";
-import "./App.css";
-import Mycomponent from "./components/Mycomponent";
+import Mycomponent1 from "./components/Mycomponent1";
+import Mycomponent2 from "./components/Mycomponent2";
 
 function App() {
-  const [test, setTest] = useState(1);
+  console.log("app");
   return (
     <div className="App">
-      <button
-        onClick={() => {
-          setTest(2);
-        }}
-      > 
-        test
-      </button>
-      <Mycomponent />
+      <Mycomponent1 />
+      <Mycomponent2 />
     </div>
   );
 }
